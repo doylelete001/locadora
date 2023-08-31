@@ -21,4 +21,20 @@ const ClientesPage =() => {
         setIsEditing(true);
         setEditingClienteId(id);
     }
-}
+    return (
+        <div>
+            <h1>pagina de Clientes </h1>
+            {isEditing ? (
+                <ClienteEditForm
+                clienteId={editClienteId}
+                onSave={handleEditFormSave}
+                />
+            ): (
+                <ClienteList onDeleteClick={handleDeleteClick}
+                onEditClick={handleEditClick} />
+            )}
+        </div>
+    );
+};
+
+export default ClientesPage;
